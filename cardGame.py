@@ -68,11 +68,11 @@ def deal_hand(int):
 		hand.append(deal_top_card())
 	return hand	
 
-# Extra funtion: deal_hands(the dck, the # of hands, size of each hand)
+# Extra funtion: deal_hands(the deck, the # of hands, size of each hand)
 #
 #
 #
-#############		TEST		############# dauntless dominate dragon "reverse" + dauntless drive dragon
+#############		TEST		############# 
 
 
 
