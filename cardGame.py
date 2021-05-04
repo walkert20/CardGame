@@ -24,13 +24,13 @@ def clear_deck():
 	while len(deck) != 0:
 		deck.pop(0)
 
-def get_suit(string):
+def get_suit(string1):
 	for suite in suites:
-		if suite in string:
+		if suite in string1:
 			return suite
 
-def get_value(string):
-	return string[0]
+def get_value(string1):
+	return string1[0]
 
 #This function  works on 2+ cards.
 def same_value(list_object):
@@ -89,6 +89,8 @@ def play_Go_Fish():
 	table = []
 	player_points = 0
 	opponent_points = 0
+	print (player_hand)
+	print (opponent_hand)
 	print("Any pairs?")
 
 	while same_value(player_hand) != False:
@@ -100,7 +102,7 @@ def play_Go_Fish():
 
 	print("Alright. You go first.")
 
-	while len(player_hand) != 0 && len(opponent_hand) != 0:
+	while len(player_hand) != 0 and len(opponent_hand) != 0:
 		player_turn()
 		opponent_turn()
 
@@ -124,12 +126,12 @@ def remove_pairs(list_object):
 	card = list_object[0]
 	for x in list_object[1:-1]:
 		if get_value(card) == get_value(x) :
-			list_object.pop(x)
-			list_object.pop(card)
+			list_object.remove(x)
+			list_object.remove(card)
 			return list_object
 
-def player_turn():
+#def player_turn():
 
-def opponent_turn():
+#def opponent_turn():
 	# Note: for varying difficulties, have the 
 	# opponent remember cards the player asked for.
