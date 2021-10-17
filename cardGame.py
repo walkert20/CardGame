@@ -46,14 +46,32 @@ def get_value(card):
 	return card.value
 #  card.value should equal get_value(card)
 
-# def get_value(string1):
-# 	return string1[0]
+
+
 
 # #This function  works on 2+ cards.
 
-
-
 # #*********************************
+def same_value(card1, card2):
+	return(card1.value == card2.value)
+
+
+def same_value(list_object):
+	if len(list_object) <= 1:
+		return False
+	if len(list_object) == 2:
+		return get_value(list_object[0]) == get_value(list_object[1])
+	else:
+		card = list_object[0]
+		for x in list_object[1:-1]:
+			if get_value(card) == get_value(x):
+				return True
+		return same_value(list_object[1:-1])
+#  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
+#  Test for instances when there is a pair, when there are multiple pairs, 
+#  when there are 3 cards of the same value, when there isn't a pair.
+
+
 # def same_value(list_object):
 # 	if len(list_object) <= 1:
 # 		return False
