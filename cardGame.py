@@ -33,27 +33,18 @@ def build_deck():
 #  queen, and king. I'll work on a more efficient way to have aces
 #  as wellas include the face cards later. Keeping it somewhat simple for now.
 
+def clear_deck():
+	while len(deck) != 0:
+		deck.pop(0)
+#  For test, decklen should be 0 after running. 
+#######		  NOTE: Make a discasrd pile. Don't just delete the deck into oblivion! 	#######
 
-
-
-# def build_deck():
-# 	for suite in suites:
-# 		deck.append("Ace of " + suite)
-# 		for i in range(2,11):
-# 			deck.append( str(i) + " of " + suite )
-# 		deck.append("Jack of " + suite)
-# 		deck.append("Queen of " + suite)
-# 		deck.append("King of " + suite)
-# 	return 
-
-# def clear_deck():
-# 	while len(deck) != 0:
-# 		deck.pop(0)
-
-# def get_suit(string1):
-# 	for suite in suites:
-# 		if suite in string1:
-# 			return suite
+def get_suite(card):
+	return card.suite
+#  card.suite should equal get_suite(card)
+def get_value(card):
+	return card.value
+#  card.value should equal get_value(card)
 
 # def get_value(string1):
 # 	return string1[0]
