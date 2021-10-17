@@ -3,6 +3,12 @@
 # chapter 8-3
 print("Hello.")
 import random
+import time
+
+#class card():
+#	def __init__(self, value, suite):
+#		self.value = value
+#		self.suite = suite
 
 
 deck = []
@@ -33,9 +39,13 @@ def get_value(string1):
 	return string1[0]
 
 #This function  works on 2+ cards.
+
+
+
+*********************************
 def same_value(list_object):
 	if len(list_object) <= 1:
-		return "List is too small."
+		return False
 	if len(list_object) == 2:
 		return get_value(list_object[0]) == get_value(list_object[1])
 
@@ -46,6 +56,8 @@ def same_value(list_object):
 
 	return same_value(list_object[1:-1])
 
+
+***************************************	
 def same_suit(string1, string2):
 	return get_suit(string1) == get_suit(string2)
 
@@ -94,8 +106,10 @@ def play_Go_Fish():
 	print("Any pairs?")
 
 	while same_value(player_hand) != False:
+		print("There's a pair")
 		player_points += 1
 		remove_pairs(player_hand)
+		print("Pair removed.")
 	while same_value(opponent_hand) != False:
 		opponent_points += 1
 		remove_pairs(opponent_hand)
@@ -126,6 +140,7 @@ def remove_pairs(list_object):
 	card = list_object[0]
 	for x in list_object[1:-1]:
 		if get_value(card) == get_value(x) :
+			print ("The pair is " +card+ " and "+ x)
 			list_object.remove(x)
 			list_object.remove(card)
 			return list_object
