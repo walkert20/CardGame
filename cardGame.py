@@ -5,16 +5,36 @@ print("Hello.")
 import random
 import time
 
-#class card():
-#	def __init__(self, value, suite):
-#		self.value = value
-#		self.suite = suite
+class card():
+	def __init__(self, value, suite):
+		self.value = value
+		self.suite = suite
 
 
 deck = []
 suites = ["Clubs","Hearts", "Spades", "Diamonds"]
 
+# class deck():
+# 	def __init__(self, [card]):
+
+
 ##########		WRITE TEST FOR 		##########
+
+def build_deck():
+	for suite in suites:
+		for i in range (1,11):
+			deck.append(card(i, suite))
+		deck.append(card("Jack", suite))
+		deck.append(card("Queen", suite))
+		deck.append(card("King", suite))
+	return
+#  For test, deck should be of size 52, have 10 numbered
+#  cards per suite, 1-10, and have 3 face cards per suite, jack, 
+#  queen, and king. I'll work on a more efficient way to have aces
+#  as wellas include the face cards later. Keeping it somewhat simple for now.
+
+
+
 
 # def build_deck():
 # 	for suite in suites:
