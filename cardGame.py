@@ -61,12 +61,19 @@ def same_value(list_object):
 		return False
 	if len(list_object) == 2:
 		return get_value(list_object[0]) == get_value(list_object[1])
+
+
+#### There is an error here. 	
 	else:
 		card = list_object[0]
 		for x in list_object[1:-1]:
 			if get_value(card) == get_value(x):
 				return True
 		return same_value(list_object[1:-1])
+
+#### There is an error here. 
+
+
 #  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
 #  Test for instances when there is a pair, when there are multiple pairs, 
 #  when there are 3 cards of the same value, when there isn't a pair.
