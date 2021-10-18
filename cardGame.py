@@ -53,8 +53,11 @@ def build_deck():
 def clear_deck():
 	while len(deck) != 0:
 		deck.pop(0)
-#  For test, decklen should be 0 after running. 
+#  For test, deck length should be 0 after running. 
+
 #######		  NOTE: Make a discasrd pile. Don't just delete the deck into oblivion! 	#######
+
+
 
 def get_suite(card):
 	return card.suite
@@ -93,12 +96,13 @@ def same_suite(card1, card2):
 	return get_suite(card1) == get_suite(card2)
 #  Test for instances of same and different suites with same/different values.
 
-
-
-# def deal_top_card():
-# 	card = deck[0]
-# 	deck.pop(0)
-# 	return card
+def deal_top_card():
+	card = deck[0]
+	deck.pop(0)
+	return card
+#  Test that the top card is indeed dealt. Test that the card and top card are
+#  the same and that the top card is removed.
+#################        AGAIN!!!! CREATE A DISCARD PILE!!!! DO NOT DELETE THE DECK INTO OBLIVION!!!!	##############
 	
 # def get_random_card():
 # 	x = random.choice(deck)
