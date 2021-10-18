@@ -5,6 +5,23 @@ print("Hello.")
 import random
 import time
 
+
+#  For debug purposes
+# def go():
+# 	for i in mylist:
+# 		print(i.value)
+		
+# mylist=[]
+
+# def debug():
+# 	mylist.append(deck[0])
+# 	mylist.append(deck[2])
+# 	mylist.append(deck[12])
+# 	mylist.append(deck[5])
+# 	print ("debug ready")
+
+############################
+
 class card():
 	def __init__(self, value, suite):
 		self.value = value
@@ -66,10 +83,12 @@ def same_value(list_object):
 #### There is an error here. 	
 	else:
 		card = list_object[0]
+		if get_value(card) == get_value(list_object[-1]):
+			return True
 		for x in list_object[1:-1]:
 			if get_value(card) == get_value(x):
 				return True
-		return same_value(list_object[1:-1])
+	return same_value(list_object[1:-1])
 
 #### There is an error here. 
 
@@ -186,3 +205,4 @@ def same_value(list_object):
 #def opponent_turn():
 	# Note: for varying difficulties, have the 
 	# opponent remember cards the player asked for.
+build_deck()
