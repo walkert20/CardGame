@@ -10,7 +10,7 @@ import time
 # def go():
 # 	for i in mylist:
 # 		print(i.value)
-		
+
 # mylist=[]
 
 # def debug():
@@ -68,7 +68,6 @@ def get_value(card):
 
 # #This function  works on 2+ cards.
 
-# #*********************************
 def same_value(card1, card2):
 	return(card1.value == card2.value)
 
@@ -77,10 +76,7 @@ def same_value(list_object):
 	if len(list_object) <= 1:
 		return False
 	if len(list_object) == 2:
-		return get_value(list_object[0]) == get_value(list_object[1])
-
-
-#### There is an error here. 	
+		return get_value(list_object[0]) == get_value(list_object[1])	
 	else:
 		card = list_object[0]
 		if get_value(card) == get_value(list_object[-1]):
@@ -89,32 +85,15 @@ def same_value(list_object):
 			if get_value(card) == get_value(x):
 				return True
 	return same_value(list_object[1:-1])
-
-#### There is an error here. 
-
-
 #  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
 #  Test for instances when there is a pair, when there are multiple pairs, 
 #  when there are 3 cards of the same value, when there isn't a pair.
 
-
-# def same_value(list_object):
-# 	if len(list_object) <= 1:
-# 		return False
-# 	if len(list_object) == 2:
-# 		return get_value(list_object[0]) == get_value(list_object[1])
-
-# 	card = list_object[0]
-# 	for x in list_object[1:-1]:
-# 		if get_value(card) == get_value(x) :
-# 			return True
-
-# 	return same_value(list_object[1:-1])
+def same_suite(card1, card2):
+	return get_suite(card1) == get_suite(card2)
+#  Test for instances of same and different suites with same/different values.
 
 
-# #***************************************	
-# def same_suit(string1, string2):
-# 	return get_suit(string1) == get_suit(string2)
 
 # def deal_top_card():
 # 	card = deck[0]
