@@ -113,19 +113,25 @@ def get_random_card():
 def shuffle():
 	random.shuffle(deck)
 
-def deal_hand(int):
+def deal_hand(size):
 	hand = []
-	for i in range(int):
+	for i in range(size):
 		hand.append(deal_top_card())
 	return hand
+#  Test that the hand is the same size as the given int value. Test thatthe cards 
+#  are removed from the deck.
 
-# def deal_hand(int):
-# 	hand = []
-# 	for i in range(int):
-# 		hand.append(deal_top_card())
-# 	return hand	
 
 # # Extra funtion: deal_hands(the deck, the # of hands, size of each hand)
+
+def deal_2_hands(size):
+	hand1=[]
+	hand2=[]
+	for i in range(size):
+		hand1.deal_top_card()
+		hand2.deal_top_card()
+	return (hand1, hand2)
+
 # #
 # #
 # #
