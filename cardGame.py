@@ -102,15 +102,22 @@ def deal_top_card():
 	return card
 #  Test that the top card is indeed dealt. Test that the card and top card are
 #  the same and that the top card is removed.
-#################        AGAIN!!!! CREATE A DISCARD PILE!!!! DO NOT DELETE THE DECK INTO OBLIVION!!!!	##############
-	
-# def get_random_card():
-# 	x = random.choice(deck)
-# 	deck.remove(x)
-# 	return x
 
-# def shuffle():
-# 	random.shuffle(deck)
+#################        AGAIN!!!! CREATE A DISCARD PILE!!!! DO NOT DELETE THE DECK INTO OBLIVION!!!!	##############
+def get_random_card():
+	x = random.choice(deck)
+	deck.remove(x)
+	return x
+#  Test thatthe obtained card is no longer in the deck.
+
+def shuffle():
+	random.shuffle(deck)
+
+def deal_hand(int):
+	hand = []
+	for i in range(int):
+		hand.append(deal_top_card())
+	return hand
 
 # def deal_hand(int):
 # 	hand = []
