@@ -31,9 +31,6 @@ class card():
 deck = []
 suites = ["Clubs","Hearts", "Spades", "Diamonds"]
 
-# class deck():
-# 	def __init__(self, [card]):
-
 
 ##########		WRITE TEST FOR 		##########
 
@@ -108,29 +105,30 @@ def get_random_card():
 	x = random.choice(deck)
 	deck.remove(x)
 	return x
-#  Test thatthe obtained card is no longer in the deck.
+#  Test that the obtained card is no longer in the deck.
 
 def shuffle():
 	random.shuffle(deck)
+#  Test that the deck is shuffled....
 
 def deal_hand(size):
 	hand = []
 	for i in range(size):
 		hand.append(deal_top_card())
 	return hand
-#  Test that the hand is the same size as the given int value. Test thatthe cards 
+#  Test that the hand is the same size as the given int value. Test that the cards 
 #  are removed from the deck.
 
 
 # # Extra funtion: deal_hands(the deck, the # of hands, size of each hand)
 
-def deal_2_hands(size):
-	hand1=[]
-	hand2=[]
-	for i in range(size):
-		hand1.deal_top_card()
-		hand2.deal_top_card()
-	return (hand1, hand2)
+# def deal_2_hands(hand1, hand2, size):
+# 	hand1=[]
+# 	hand2=[]
+# 	for i in range(size):
+# 		hand1.deal_top_card()
+# 		hand2.deal_top_card()
+# 	return (hand1, hand2)
 
 # #
 # #
@@ -138,15 +136,13 @@ def deal_2_hands(size):
 # #############		TEST		############# 
 
 
+build_deck()
+print(" Deck is ready to be used. ")
 
-
-# build_deck()
-# print("deck is ready to be used")
-# #print (deck)
-
-# def play_Go_Fish():
-# 	print ("Hey! Let's play Go Fish!")
-# 	shuffle()
+def play_Go_Fish():
+	print ("Hey! Let's play Go Fish!")
+	shuffle()
+	
 # 	player_hand = deal_hand(7)
 # 	opponent_hand = deal_hand(7)
 # 	table = []
@@ -201,4 +197,3 @@ def deal_2_hands(size):
 #def opponent_turn():
 	# Note: for varying difficulties, have the 
 	# opponent remember cards the player asked for.
-build_deck()
