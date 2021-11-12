@@ -6,26 +6,6 @@ import random
 import time
 
 
-
-def testImport():
-	print ("This function has been imported.")
-
-def testImport2():
-	print ("This module has been imported")
-#  For debug purposes
-# def go():
-# 	for i in mylist:
-# 		print(i.value)
-
-# mylist=[]
-
-# def debug():
-# 	mylist.append(deck[0])
-# 	mylist.append(deck[2])
-# 	mylist.append(deck[12])
-# 	mylist.append(deck[5])
-# 	print ("debug ready")
-
 ############################
 
 class card():
@@ -143,7 +123,7 @@ def deal_hand(size):
 
 
 build_deck()
-print(" Deck is ready to be used. ")
+print("Deck is ready to be used. ")
 
 def play_Go_Fish():
 	print ("Hey! Let's play Go Fish!")
