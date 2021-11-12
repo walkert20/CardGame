@@ -6,6 +6,12 @@ import random
 import time
 
 
+
+def testImport():
+	print ("This function has been imported.")
+
+def testImport2():
+	print ("This module has been imported")
 #  For debug purposes
 # def go():
 # 	for i in mylist:
@@ -72,7 +78,7 @@ def same_value(card1, card2):
 	return(card1.value == card2.value)
 
 
-def same_value(list_object):
+def same_value_list(list_object):
 	if len(list_object) <= 1:
 		return False
 	if len(list_object) == 2:
@@ -84,7 +90,7 @@ def same_value(list_object):
 		for x in list_object[1:-1]:
 			if get_value(card) == get_value(x):
 				return True
-	return same_value(list_object[1:-1])
+	return same_value_list(list_object[1:-1])
 #  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
 #  Test for instances when there is a pair, when there are multiple pairs, 
 #  when there are 3 cards of the same value, when there isn't a pair.
