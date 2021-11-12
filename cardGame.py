@@ -33,10 +33,6 @@ def build_deck():
 #  queen, and king. I'll work on a more efficient way to have aces
 #  as well as include the face cards later. Keeping it somewhat simple for now.
 
-def clear_deck():
-	while len(deck) != 0:
-		deck.pop(0)
-#  For test, deck length should be 0 after running. 
 
 #######		  NOTE: Make a discasrd pile. Don't just delete the deck into oblivion! 	#######
 
