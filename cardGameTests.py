@@ -4,7 +4,7 @@ import random
 import time
 import cardGame
 
-def constructor_test():
+def test_constructor():
 	print ("Testing the constructor....")
 	card = None
 	assert card == None
@@ -12,4 +12,16 @@ def constructor_test():
 	assert card != None
 	print ("Constructor is functioning.")
 
-constructor_test()
+def test_build_deck():
+	print("Testing the deck constructor....")
+	deck = None
+	assert deck == None
+	deck = cardGame.build_deck()
+	assert deck != None
+	assert len(deck) == 52
+	print("Deck Constructs. ")
+
+
+#def main():
+#	test_constructor()
+#	test_build_deck()

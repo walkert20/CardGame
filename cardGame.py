@@ -27,11 +27,11 @@ def build_deck():
 		deck.append(card("Jack", suite))
 		deck.append(card("Queen", suite))
 		deck.append(card("King", suite))
-	return
+	return deck
 #  For test, deck should be of size 52, have 10 numbered
 #  cards per suite, 1-10, and have 3 face cards per suite, jack, 
 #  queen, and king. I'll work on a more efficient way to have aces
-#  as wellas include the face cards later. Keeping it somewhat simple for now.
+#  as well as include the face cards later. Keeping it somewhat simple for now.
 
 def clear_deck():
 	while len(deck) != 0:
@@ -122,8 +122,8 @@ def deal_hand(size):
 # #############		TEST		############# 
 
 
-build_deck()
-print("Deck is ready to be used. ")
+#build_deck()
+#print("Deck is ready to be used. ")
 
 def play_Go_Fish():
 	print ("Hey! Let's play Go Fish!")
