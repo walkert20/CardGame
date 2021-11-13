@@ -24,6 +24,17 @@ def test_build_deck():
 	print("Deck Constructs. ")
 	print("")
 
-#def main():
-#	test_constructor()
-#	test_build_deck()
+def test_get_suite():
+	print("Testing getter function for suite....")
+	card = cardGame.card(3, "Hearts")
+	suite = "Hearts"
+	assert cardGame.get_suite(card) == suite
+	suite = cardGame.get_suite(card)
+	assert cardGame.get_suite(card) == suite
+	print("Getter function for suite is working.")
+	print("")
+
+def main():
+	test_constructor()
+	test_build_deck()
+	test_get_suite()
