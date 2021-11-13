@@ -29,8 +29,9 @@ def test_get_suite():
 	card = cardGame.card(3, "Hearts")
 	suite = "Hearts"
 	assert cardGame.get_suite(card) == suite
-	suite = cardGame.get_suite(card)
-	assert cardGame.get_suite(card) == suite
+
+	suite = "Spades"
+	assert cardGame.get_suite(card) != suite
 	print("Getter function for suite is working.")
 	print("")
 
@@ -39,13 +40,33 @@ def test_get_value():
 	card = cardGame.card(3, "Hearts")
 	value = 3
 	assert cardGame.get_value(card) == value
-	value = cardGame.get_value(card)
-	assert cardGame.get_value(card) == value
+	value = 6
+	assert cardGame.get_value(card) != value
 	print("Getter function for value is working.")
 	print("")
+
+def test_same_value():
+	print("Testing for same value cards....")
+	print("with different suites....")
+	card1 = cardGame.card(3, "Hearts")
+	card2 = cardGame.card(3, "Spades")
+	assert cardGame.get_value(card1) == cardGame.get_value(card2)
+	assert cardGame.get_suite(card1) != cardGame.get_suite(card2)
+	assert cardGame.same_value(card1, card2) == True
+
+	print("with different values, but same suite....")
+	card3 = cardGame.card(5, "Hearts")
+	assert cardGame.same_value(card1, card3) == False
+
+	print("with different values and different suits....")
+	assert cardGame.same_value(card2, card3) == False
+	print("Same value function is functioning.")
+	print("")
+
 
 def main():
 	test_constructor()
 	test_build_deck()
 	test_get_suite()
 	test_get_value()
+	test_same_value()
