@@ -6,22 +6,19 @@ import random
 import time
 
 
-############################
-
 class card():
 	def __init__(self, value, suite):
 		self.value = value
 		self.suite = suite
 
-
 deck = []
+discard=[]
 suites = ["Clubs","Hearts", "Spades", "Diamonds"]
 
 
-##########		WRITE TEST FOR 		##########
-
 def build_deck():
 	deck.clear()
+	discard.clear()
 	for suite in suites:
 		for i in range (1,11):
 			deck.append(card(i, suite))
@@ -29,31 +26,15 @@ def build_deck():
 		deck.append(card("Queen", suite))
 		deck.append(card("King", suite))
 	return deck
-#  For test, deck should be of size 52, have 10 numbered
-#  cards per suite, 1-10, and have 3 face cards per suite, jack, 
-#  queen, and king. I'll work on a more efficient way to have aces
-#  as well as include the face cards later. Keeping it somewhat simple for now.
-
-
-#######		  NOTE: Make a discasrd pile. Don't just delete the deck into oblivion! 	#######
-
-
 
 def get_suite(card):
 	return card.suite
-#  card.suite should equal get_suite(card)
+
 def get_value(card):
 	return card.value
-#  card.value should equal get_value(card)
-
-
-
-
-# #This function  works on 2+ cards.
 
 def same_value(card1, card2):
 	return(card1.value == card2.value)
-
 
 def same_value_list(list_object):
 	if len(list_object) <= 1:
@@ -68,22 +49,16 @@ def same_value_list(list_object):
 		temp = list_object
 		temp.pop(0)
 		return same_value_list(temp)
-#  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
-#  Test for instances when there is a pair, when there are multiple pairs, 
-#  when there are 3 cards of the same value, when there isn't a pair.
 
 def same_suite(card1, card2):
 	return get_suite(card1) == get_suite(card2)
-#  Test for instances of same and different suites with same/different values.
 
 def deal_top_card():
 	card = deck[0]
+	discard.append(deck[0])
 	deck.pop(0)
 	return card
-#  Test that the top card is indeed dealt. Test that the card and top card are
-#  the same and that the top card is removed.
 
-#################        AGAIN!!!! CREATE A DISCARD PILE!!!! DO NOT DELETE THE DECK INTO OBLIVION!!!!	##############
 def get_random_card():
 	x = random.choice(deck)
 	deck.remove(x)

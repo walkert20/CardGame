@@ -127,6 +127,17 @@ def test_same_suite():
 	print("Tests passed.")
 	print("")
 
+def test_deal_top_card():
+	print("Testing the dealing of the top card....")
+	deck = cardGame.build_deck()
+	temp = deck[0]
+	assert (temp == cardGame.deal_top_card())
+	assert (temp != deck[0])
+	assert (temp == cardGame.discard[0])
+	assert (len(deck) == 51)
+	print("Tests passed.")
+	print("")
+
 
 def main():
 	test_constructor()
@@ -136,3 +147,4 @@ def main():
 	test_same_value()
 	test_same_value_list()
 	test_same_suite()
+	test_deal_top_card()
