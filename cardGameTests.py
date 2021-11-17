@@ -16,10 +16,8 @@ def test_constructor():
 
 def test_build_deck():
 	print("Testing the deck constructor....")
-	deck = None
-	assert deck == None
+	deck = []
 	deck = cardGame.build_deck()
-	assert deck != None
 	assert len(deck) == 52
 	print("Deck Constructs. ")
 	print("")
@@ -63,6 +61,62 @@ def test_same_value():
 	print("Same value function is functioning.")
 	print("")
 
+def test_same_value_list():
+	print("Testing for same value cards within a list....")
+	test_same_value_list_1()
+	test_same_value_list_2()
+	print("Test passed.")
+	print("")
+
+def test_same_value_list_1():
+	# Case where list size is 0.
+	hand = []
+	assert cardGame.same_value_list(hand) == False
+
+	# Case where the list size is 1.
+	hand.append(cardGame.card(1, "Hearts"))
+	assert cardGame.same_value_list(hand) == False
+
+	# Case where the list size is 2 and there isn't a pair.
+	hand.append(cardGame.card(2, "Hearts"))
+	assert cardGame.same_value_list(hand) == False
+
+	#Case where the list size is 2 and there is a pair.
+	hand.pop(1)
+	hand.append(cardGame.card(1, "Diamonds"))
+	assert cardGame.same_value_list(hand) == True
+
+def test_same_value_list_2():
+	# Case where the list size is 3 and the pair is the first 
+	# and last card.
+	hand = []
+	hand.append(cardGame.card(1, "Diamonds"))
+	hand.append(cardGame.card(4, "Diamonds"))
+	hand.append(cardGame.card(1, "Spades"))
+	assert cardGame.same_value_list(hand) == True
+
+	# Case where there are numerous pairs within a larger list.
+	hand.pop(2)
+	hand.append(cardGame.card(3, "Clubs"))
+	hand.append(cardGame.card(4, "Clubs"))
+	hand.append(cardGame.card(3, "Hearts"))
+	assert cardGame.same_value_list(hand) == True
+
+	# Case where the list is longer, but there are no pairs.
+	hand.pop(-1)
+	hand.pop(-1)
+	hand.append(cardGame.card(7, "Clubs"))
+	hand.append(cardGame.card("King", "Clubs"))
+	hand.append(cardGame.card("Jack", "Hearts"))
+	assert cardGame.same_value_list(hand) == False
+
+	# Case where there is a pair of face cards.
+	hand.append(cardGame.card("King", "Spades"))
+	for x in hand:
+		print(cardGame.get_value(x))
+	assert cardGame.same_value_list(hand) == True
+
+
 
 def main():
 	test_constructor()
@@ -70,3 +124,4 @@ def main():
 	test_get_suite()
 	test_get_value()
 	test_same_value()
+	test_same_value_list()

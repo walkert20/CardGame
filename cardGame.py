@@ -21,6 +21,7 @@ suites = ["Clubs","Hearts", "Spades", "Diamonds"]
 ##########		WRITE TEST FOR 		##########
 
 def build_deck():
+	deck.clear()
 	for suite in suites:
 		for i in range (1,11):
 			deck.append(card(i, suite))
@@ -61,12 +62,12 @@ def same_value_list(list_object):
 		return get_value(list_object[0]) == get_value(list_object[1])	
 	else:
 		card = list_object[0]
-		if get_value(card) == get_value(list_object[-1]):
-			return True
-		for x in list_object[1:-1]:
-			if get_value(card) == get_value(x):
+		for i in range(1, len(list_object)):
+			if get_value(card) == get_value(list_object[i]):
 				return True
-	return same_value_list(list_object[1:-1])
+		temp = list_object
+		temp.pop(0)
+		return same_value_list(temp)
 #  Test for these cases: lists of sizes 0, 1, 2, 3, 5, the whole deck. 	
 #  Test for instances when there is a pair, when there are multiple pairs, 
 #  when there are 3 cards of the same value, when there isn't a pair.
