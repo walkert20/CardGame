@@ -65,7 +65,7 @@ def test_same_value_list():
 	print("Testing for same value cards within a list....")
 	test_same_value_list_1()
 	test_same_value_list_2()
-	print("Test passed.")
+	print("Tests passed.")
 	print("")
 
 def test_same_value_list_1():
@@ -116,6 +116,16 @@ def test_same_value_list_2():
 		print(cardGame.get_value(x))
 	assert cardGame.same_value_list(hand) == True
 
+def test_same_suite():
+	print("Testing for same suite cards....")
+	card1 = cardGame.card(3, "Hearts")
+	card2 = cardGame.card(3, "Spades")
+	assert cardGame.same_suite(card1, card2) == False
+
+	card3 = cardGame.card(6, "Hearts")
+	assert cardGame.same_suite(card1, card3) == True
+	print("Tests passed.")
+	print("")
 
 
 def main():
@@ -125,3 +135,4 @@ def main():
 	test_get_value()
 	test_same_value()
 	test_same_value_list()
+	test_same_suite()
