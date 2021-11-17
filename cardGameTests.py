@@ -138,6 +138,16 @@ def test_deal_top_card():
 	print("Tests passed.")
 	print("")
 
+def test_get_random_card():
+	print("Testing drawing a random card from the deck")
+	deck = cardGame.build_deck()
+	temp = cardGame.get_random_card()
+	assert (temp == cardGame.discard[0])
+	assert (temp not in deck)
+	assert (len(deck) == 51)
+	print("Random card drawn. Tests passing.")
+	print("")
+
 
 def main():
 	test_constructor()
@@ -148,3 +158,4 @@ def main():
 	test_same_value_list()
 	test_same_suite()
 	test_deal_top_card()
+	test_get_random_card()

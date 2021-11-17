@@ -60,9 +60,10 @@ def deal_top_card():
 	return card
 
 def get_random_card():
-	x = random.choice(deck)
-	deck.remove(x)
-	return x
+	card = random.choice(deck)
+	discard.append(card)
+	deck.remove(card)
+	return card
 #  Test that the obtained card is no longer in the deck.
 
 def shuffle():
