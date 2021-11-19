@@ -64,12 +64,10 @@ def get_random_card():
 	discard.append(card)
 	deck.remove(card)
 	return card
-#  Test that the obtained card is no longer in the deck.
 
 def shuffle():
 	random.shuffle(deck)
-#  Test that the deck is shuffled....
-
+	
 def deal_hand(size):
 	hand = []
 	for i in range(size):

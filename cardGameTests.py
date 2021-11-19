@@ -112,8 +112,6 @@ def test_same_value_list_2():
 
 	# Case where there is a pair of face cards.
 	hand.append(cardGame.card("King", "Spades"))
-	for x in hand:
-		print(cardGame.get_value(x))
 	assert cardGame.same_value_list(hand) == True
 
 def test_same_suite():
@@ -148,6 +146,21 @@ def test_get_random_card():
 	print("Random card drawn. Tests passing.")
 	print("")
 
+def test_deal_hand():
+	print("Testing dealing a hand....")
+	deck = cardGame.build_deck()
+	temp_hand = []
+	for i in range(5):
+		temp_hand.append(deck[i])
+	hand = cardGame.deal_hand(5)
+	assert len(deck) == 47
+	for x in range(len(hand)):
+		assert hand[x] == temp_hand[x]
+
+	assert len(cardGame.discard) == len(temp_hand)
+	print ("Hand is dealt.")
+
+
 
 def main():
 	test_constructor()
@@ -159,3 +172,4 @@ def main():
 	test_same_suite()
 	test_deal_top_card()
 	test_get_random_card()
+	test_deal_hand()
