@@ -12,6 +12,7 @@ class card():
 		self.suite = suite
 
 deck = []
+table = []
 discard=[]
 suites = ["Clubs","Hearts", "Spades", "Diamonds"]
 
@@ -73,24 +74,9 @@ def deal_hand(size):
 	for i in range(size):
 		hand.append(deal_top_card())
 	return hand
-#  Test that the hand is the same size as the given int value. Test that the cards 
-#  are removed from the deck.
 
 
 # # Extra funtion: deal_hands(the deck, the # of hands, size of each hand)
-
-# def deal_2_hands(hand1, hand2, size):
-# 	hand1=[]
-# 	hand2=[]
-# 	for i in range(size):
-# 		hand1.deal_top_card()
-# 		hand2.deal_top_card()
-# 	return (hand1, hand2)
-
-# #
-# #
-# #
-# #############		TEST		############# 
 
 
 #build_deck()
@@ -98,25 +84,31 @@ def deal_hand(size):
 
 def play_Go_Fish():
 	print ("Hey! Let's play Go Fish!")
+	build_deck()
 	shuffle()
-	
-# 	player_hand = deal_hand(7)
-# 	opponent_hand = deal_hand(7)
-# 	table = []
-# 	player_points = 0
-# 	opponent_points = 0
-# 	print (player_hand)
-# 	print (opponent_hand)
-# 	print("Any pairs?")
+	player_hand = deal_hand(7)
+	opponent_hand = deal_hand(7)
+	table = []
+	player_points = 0
+	opponent_points = 0
+	print("Your hand: ")
+	for x in player_hand:
+		print(x.value, x.suite)
+	print("")
+	for x in opponent_hand:
+		print(x.value, x.suite)
+	print ("")
 
-# 	while same_value(player_hand) != False:
-# 		print("There's a pair")
-# 		player_points += 1
-# 		remove_pairs(player_hand)
-# 		print("Pair removed.")
+# 	while same_value_list(player_hand) != False:
+#		player_points += 1
+# 		player_hand = remove_pairs(player_hand)
+# 		print("You have " + player_points + " points.")
+# 		print("")
 # 	while same_value(opponent_hand) != False:
 # 		opponent_points += 1
-# 		remove_pairs(opponent_hand)
+# 		opponent_hand = remove_pairs(opponent_hand)
+# 		print ("Your opponent has ", + opponent_points + " points.")
+# 		print("")
 
 # 	print("Alright. You go first.")
 
@@ -132,22 +124,20 @@ def play_Go_Fish():
 # #def check_for_pairs(list_object):
 # #	return same_value(list_object)
 
-# def remove_pairs(list_object):
-# 	if len(list_object) == 2:
-# 		if same_value(list_object):
-# 			list_object.pop(0)
-# 			list_object.pop(0)
-# 			return list_object
-# 		else:
-# 			return list_object
+def remove_pairs(list_object):
+	card = list_object[0]
+	for i in range(1, len(list_object)):
+		if get_value(card) == get_value(list_object[i]):
+			temp = list_object[i]
+			table.append([(card.value, card.suite), 
+				(temp.value, temp.suite)])
+			list_object.pop(0)
+			list_object.pop(i)
+			temp = list_object
+	return temp
 
-# 	card = list_object[0]
-# 	for x in list_object[1:-1]:
-# 		if get_value(card) == get_value(x) :
-# 			print ("The pair is " +card+ " and "+ x)
-# 			list_object.remove(x)
-# 			list_object.remove(card)
-# 			return list_object
+
+
 
 #def player_turn():
 
